@@ -9,13 +9,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class BaseballNumber {
 	private List<Integer> numberList;
 
-	public BaseballNumber() {
-	}
-
-	public BaseballNumber(String input) {
-		validateInput(input);
-		numberList = convertIntegerList(input);
-	}
+	public BaseballNumber() {}
 
 	private List<Integer> convertIntegerList(String input) {
 		return input.chars().boxed().collect(Collectors.toList());
@@ -43,5 +37,9 @@ public class BaseballNumber {
 
 	public List<Integer> getNumberList() {
 		return numberList;
+	}
+	public void setBaseballNumber(String input){
+		validateInput(input);
+		numberList = convertIntegerList(input);
 	}
 }
