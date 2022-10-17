@@ -13,6 +13,7 @@ public class BaseballNumber {
 	private static final Integer BASE_BALL_NUMBER_SIZE = 3;
 
 	public BaseballNumber() {}
+
 	private List<Integer> convertStringToIntegerList(String input) {
 		List<Integer> inputList = new ArrayList<>();
 		input.chars().forEach(num -> inputList.add(num-'0'));
@@ -28,6 +29,7 @@ public class BaseballNumber {
 	}
 
 	public void initNumber() {
+		baseballNumber.clear();
 		while (baseballNumber.size() != BASE_BALL_NUMBER_SIZE) {
 			int randomNumber = Randoms.pickNumberInRange(1, 9);
 			if (baseballNumber.contains(randomNumber)) continue;
@@ -38,6 +40,7 @@ public class BaseballNumber {
 	public List<Integer> getBaseballNumber() {
 		return baseballNumber;
 	}
+
 	public void setBaseballNumber(String input){
 		validateInput(input);
 		baseballNumber = convertStringToIntegerList(input);
