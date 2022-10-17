@@ -17,7 +17,7 @@ public class BaseballGameCalculator {
 
 		if(duplicateNumbers.size()==0){
 			printResultOfGame(0,0);
-			return false;
+			return true;
 		}
 
 		for(int i=0;i<3;i++){
@@ -28,8 +28,8 @@ public class BaseballGameCalculator {
 
 		printResultOfGame(strikeCount,ballCount);
 
-		if(strikeCount==3) return true;
-		else return false;
+		if(strikeCount==3) return false;
+		else return true;
 	}
 
 	private List<Integer> createDuplicateList(List<Integer> listOne, List<Integer> listTwo){
