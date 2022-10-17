@@ -9,9 +9,10 @@ import java.util.stream.Stream;
 
 public class BaseballGameCalculator {
 	public boolean calculateBSO(BaseballNumber answer, BaseballNumber input){
-		List<Integer> answerNumber = answer.getBaseballNumber();
-		List<Integer> inputNumber = input.getBaseballNumber();
-		List<Integer> duplicateNumbers = createDuplicateList(answerNumber,inputNumber);
+		List<Integer> answerNumbers = answer.getBaseballNumber();
+		List<Integer> inputNumbers = input.getBaseballNumber();
+		List<Integer> duplicateNumbers = createDuplicateList(answer.getBaseballNumber(),
+				input.getBaseballNumber());
 		int strikeCount = 0;
 		int ballCount = 0;
 
@@ -21,14 +22,14 @@ public class BaseballGameCalculator {
 		}
 
 		for(int i=0;i<3;i++){
-			if(!duplicateNumbers.contains(inputNumber.get(i))) continue;
-			if(answerNumber.get(i).equals(inputNumber.get(i))) strikeCount++;
+			if(!duplicateNumbers.contains(inputNumbers.get(i))) continue;
+			if(answerNumbers.get(i).equals(inputNumbers.get(i))) strikeCount++;
 			else ballCount++;
 		}
 
 		printResultOfGame(strikeCount,ballCount);
 
-		if(strikeCount==3) return false;
+		if(strikeCount == 3) return false;
 		else return true;
 	}
 
