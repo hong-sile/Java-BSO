@@ -8,37 +8,38 @@ public class Controller {
 	private final BaseballGameCalculator baseBallGameCalculator = new BaseballGameCalculator();
 	private final BaseballNumber answer = new BaseballNumber();
 	private final BaseballNumber input = new BaseballNumber();
-	private static final String gameRestartCommand = "1";
-	private static final String gameEndCommand = "2";
+	private String command;
+	private static final String GAME_RESTART_COMMAND = "1";
+	private static final String GAME_END_COMMAND = "2";
+	private static final String GUESS_ANSWER_MESSAGE = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
+	private static final String ASK_RESTART_MESSAGE= "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요";
+	private static final String INPUT_NUMBERS_MESSAGE = "숫자를 입력해주세요 : ";
+	private static final String WORNG_INPUT_MESSAGE = "잘못된 값을 입력하셨습니다.";
 
 	public void run(){
-		String command;
 		do{
 			initGame();
-			System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
-			System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요");
-			command = inputCommand();
-		}while (command.equals(gameRestartCommand));
+			System.out.println(GUESS_ANSWER_MESSAGE);
+			System.out.println(ASK_RESTART_MESSAGE);
+			inputCommand();
+		}while (command.equals(GAME_RESTART_COMMAND));
 	}
 
 	private void initGame(){
 		answer.initNumber();
-		System.out.print("숫자를 입력해주세요 : ");
+		System.out.print(INPUT_NUMBERS_MESSAGE);
 		do{
 			input.setBaseballNumber(Console.readLine());
 		}while(baseBallGameCalculator.calculateBSO(answer,input));
 	}
 
-	private String inputCommand(){
-		String command;
+	private void inputCommand(){
 		command = Console.readLine();
 
-		while(!command.equals(gameRestartCommand) && !command.equals(gameEndCommand)){
-			System.out.println("잘못된 값을 입력하셨습니다.");
-			System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+		while(!command.equals(GAME_RESTART_COMMAND) && !command.equals(GAME_END_COMMAND)){
+			System.out.println(WORNG_INPUT_MESSAGE);
+			System.out.println(ASK_RESTART_MESSAGE);
 			command=Console.readLine();
 		}
-
-		return command;
 	}
 }
