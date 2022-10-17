@@ -13,8 +13,10 @@ public class BaseballNumber {
 	private static final Integer BASE_BALL_NUMBER_SIZE = 3;
 
 	public BaseballNumber() {}
-	private List<Integer> convertIntegerList(String input) {
-		return input.chars().boxed().collect(Collectors.toList());
+	private List<Integer> convertStringToIntegerList(String input) {
+		List<Integer> inputList = new ArrayList<>();
+		input.chars().forEach(num -> inputList.add(num-'0'));
+		return inputList;
 	}
 
 	private void validateInput(String input) {
@@ -38,6 +40,6 @@ public class BaseballNumber {
 	}
 	public void setBaseballNumber(String input){
 		validateInput(input);
-		baseballNumber = convertIntegerList(input);
+		baseballNumber = convertStringToIntegerList(input);
 	}
 }
