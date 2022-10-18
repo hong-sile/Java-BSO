@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BaseballGameCalculator {
-	public boolean calculateBSO(BaseballNumber answer, BaseballNumber input){
+	public static boolean calculateBSO(BaseballNumber answer, BaseballNumber input){
 		List<Integer> answerNumbers = answer.getBaseballNumber();
 		List<Integer> inputNumbers = input.getBaseballNumber();
 		List<Integer> duplicateNumbers = createDuplicateList(answer.getBaseballNumber(),
@@ -33,7 +33,7 @@ public class BaseballGameCalculator {
 		else return true;
 	}
 
-	private List<Integer> createDuplicateList(List<Integer> listOne, List<Integer> listTwo){
+	private static List<Integer> createDuplicateList(List<Integer> listOne, List<Integer> listTwo){
 		List<Integer> numbers = concatTwoList(listOne, listTwo);
 		Set<Integer> duplicateFilter = new HashSet<>();
 
@@ -48,16 +48,14 @@ public class BaseballGameCalculator {
 		return numbers;
 	}
 
-	private void printResultOfGame(int strikeCount, int ballCount){
+	private static void printResultOfGame(int strikeCount, int ballCount){
 		if(ballCount == 0 && strikeCount == 0) {
 			System.out.println("낫싱");
 			return;
 		}
 
-		if(ballCount != 0)
-			System.out.print(ballCount+"볼 ");
-		if(strikeCount != 0)
-			System.out.print(strikeCount+"스트라이크");
+		if(ballCount != 0) System.out.print(ballCount+"볼 ");
+		if(strikeCount != 0) System.out.print(strikeCount+"스트라이크");
 
 		System.out.println();
 	}
