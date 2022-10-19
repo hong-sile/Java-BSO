@@ -14,7 +14,7 @@ public class Controller {
 	private static final String GUESS_ANSWER_MESSAGE = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
 	private static final String ASK_RESTART_MESSAGE= "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요";
 	private static final String INPUT_NUMBERS_MESSAGE = "숫자를 입력해주세요 : ";
-	private static final String WORNG_INPUT_MESSAGE = "잘못된 값을 입력하셨습니다.";
+	private static final String WRONG_INPUT_MESSAGE = "잘못된 값을 입력하셨습니다.";
 
 	public void run(){
 		do{
@@ -37,7 +37,7 @@ public class Controller {
 		command = Console.readLine();
 
 		while(!command.equals(GAME_RESTART_COMMAND) && !command.equals(GAME_END_COMMAND)){
-			System.out.println(WORNG_INPUT_MESSAGE);
+			System.out.println(WRONG_INPUT_MESSAGE);
 			System.out.println(ASK_RESTART_MESSAGE);
 			command=Console.readLine();
 		}
